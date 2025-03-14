@@ -1,0 +1,29 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  background-color: rgba(1, 41, 1, 0.123);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.144);
+}
+
+header a {
+  display: flex;
+  text-decoration: none;
+  margin: 0px 20px;
+}
+
+header ul {
+  display: flex;
+
+}
+
+header ul li {
+  display: flex;
+  margin: 0px 20px;
+}

@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jonas",
+      "login": "jdados",
+      "password": "123456"
+    }
+
+  ],
+  "horarios": [
+    {"id": 1, "data": "09/03/2025", "hora": "19:00", "quadraId": 1}
+  ],
+  "quadras": [
+    {"id": 1, "nome": "sintetico"}
+  ]
+}

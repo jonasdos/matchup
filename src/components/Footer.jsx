@@ -1,13 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Footer = () => {
   return (
-    <footer>
+    <FooterEl>
       <div className="footer-content">
-        <p>&copy; 2025 J-dos. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Jdados. Todos os direitos reservados.</p>
       </div>
-    </footer>
+    </FooterEl>
   );
 };
 
 export default Footer;
+const FooterEl = styled.footer`
+text-align: center;
+`

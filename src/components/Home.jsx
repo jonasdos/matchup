@@ -1,19 +1,19 @@
 import React from "react";
-
-
-
+import Banner from "./Home/Banner";
+import banner from "../assets/home.jpg";
+import Button from "./Utilities/Button";
 function Home() {
-  
   return (
-    <div>
-    <h3>Banner principal</h3>
-    
-    <div>
-      <h3>Sessão de apresentação da estrutura</h3>
-      
+    <section>
+      <div className="container">
+        <Banner backgroundImage={banner}>
+          <nav className="container">
+            <h1 className="title">Reserve seu horário</h1>
+            <Button>Reservar horário</Button>
+          </nav>{" "}
+        </Banner>
       </div>
-      
-    </div>
+    </section>
   );
 }
 

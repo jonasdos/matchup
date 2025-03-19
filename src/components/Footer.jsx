@@ -1,17 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React from "react";
+import styles from "./Footer.module.css";
 const Footer = () => {
   return (
-    <FooterEl>
-      <div className="footer-content">
-        <p>&copy; 2025 Jdados. Todos os direitos reservados.</p>
-      </div>
-    </FooterEl>
+    <footer className="footer">
+      <nav className="container">
+        <div className={styles.footerContent}>
+          <p>&copy; 2025 Jdados. Todos os direitos reservados.</p>
+        </div>
+      </nav>
+    </footer>
   );
 };
 
 export default Footer;
-const FooterEl = styled.footer`
-text-align: center;
-`

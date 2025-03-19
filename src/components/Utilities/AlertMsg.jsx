@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./AlertMsg.module.css";
 
-const AlertMsg = ({ msg }) => {
-  return <p className={styles.alert}>{msg}</p>;
+const ErrorMsg = ({ errorMsg }) => {
+  if (!errorMsg) return null;
+  return <p className={styles.alert}>{errorMsg}</p>;
 };
 
-export default AlertMsg;
+export default ErrorMsg;

@@ -1,9 +1,11 @@
 import React from "react";
 import { UserContext } from "../../UserContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../Utilities/Button";
+import styles from "./Profile.module.css";
 
 const Profile = () => {
-  const { login, data, userLogout } = React.useContext(UserContext);
+  const { login, userLogout } = React.useContext(UserContext);
   const navigate = useNavigate();
   React.useEffect(() => {
     if (!login) {
@@ -26,42 +28,29 @@ const Profile = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h3>Seja Bem vindo, {login && data.name} </h3>
-      <button style={styles.button} onClick={handleUpdateLogin}>
-        Alterar Dados de Login
-      </button>
-      <button style={styles.button} onClick={handleUpdatePassword}>
-        Alterar Senha
-      </button>
-      <button style={styles.button} onClick={handleLogout}>
-        Logout
-      </button>
-    </div>
+    <section className={`animeLeft `}>
+      <div className="container">
+        <h1 className="title">Opções do usuário</h1>
+        <nav className="containerProfile">
+          <div className={styles.profileItem}>
+            <Button className={styles.wrapper} onClick={handleUpdateLogin}>
+              Alterar Dados de Login
+            </Button>
+          </div>
+          <div className={styles.profileItem}>
+            <Button className={styles.wrapper} onClick={handleUpdatePassword}>
+              Alterar Senha
+            </Button>
+          </div>
+          <div className={styles.profileItem}>
+            <Button className={styles.wrapper} onClick={handleLogout}>
+              Logout
+            </Button>
+          </div>
+        </nav>
+      </div>
+    </section>
   );
-};
-
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "10px",
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    maxWidth: "300px",
-    margin: "0 auto",
-  },
-  button: {
-    padding: "10px 20px",
-    fontSize: "16px",
-    cursor: "pointer",
-    borderRadius: "4px",
-    border: "none",
-    backgroundColor: "#007BFF",
-    color: "#fff",
-  },
 };
 
 export default Profile;

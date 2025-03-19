@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  addNewUser,
   getlocalUserData,
   removeLocalUserData,
   saveLocalUserData,
@@ -22,7 +23,7 @@ export const UserStorage = ({ children }) => {
         setLoading(true);
         const response = await validateLogin(login, password);
         if (response.cod === "401 Unauthorized") {
-          throw new Error(`Error: ${response.message}`);
+          setError(`${response.message}`);
         }
 
         saveLocalUserData(response.user);
@@ -39,6 +40,27 @@ export const UserStorage = ({ children }) => {
       }
     },
     [navigate]
+  );
+  const userCreate = React.useCallback(
+    async function (name, login, password) {
+      console.log("Criar usuário no Context");
+      try {
+        setLoading(true);
+        const response = await addNewUser(name, login, password);
+        if (response.cod === "409 Conflict") {
+          setError(`${response.message}`);
+          return;
+        }
+        userLogin(response.user.login, response.user.password);
+      } catch (error) {
+        setError(error.message);
+
+        setLogin(false);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [userLogin]
   );
   const userLogout = React.useCallback(() => {
     setData(null);
@@ -72,7 +94,15 @@ export const UserStorage = ({ children }) => {
   return (
     <div>
       <UserContext.Provider
-        value={{ login, data, loading, error, userLogin, userLogout }}
+        value={{
+          login,
+          data,
+          loading,
+          error,
+          userCreate,
+          userLogin,
+          userLogout,
+        }}
       >
         {children}
       </UserContext.Provider>

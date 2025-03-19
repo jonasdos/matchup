@@ -1,62 +1,37 @@
 import React from "react";
+import Input from "../Utilities/Input";
+import Button from "../Utilities/Button";
+import useForm from "../../Hooks/useForm";
+import { UserContext } from "../../UserContext";
+import ErrorMsg from "../Utilities/AlertMsg";
 
 const LoginCreate = () => {
-    const [registerForm, setRegisterForm] = React.useState({
-      name: '',
-      login: '',
-      password: '',
-    })
+  const { error, userCreate } = React.useContext(UserContext);
+  const name = useForm();
+  const login = useForm();
+  const password = useForm("password");
 
-    const handleRegisterForm = (e) => {
-      e.PreventDefault()
+  const handleRegisterForm = async (e) => {
+    e.preventDefault();
+    if (name.validate() && login.validate && password.validate) {
+      console.log("chamou");
+      userCreate(name.value, login.value, password.value);
     }
+  };
 
-    return (
-      <div>
-      <h1>Cadastrar</h1>
+  return (
+    <section>
+      <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleRegisterForm}>
-      <div>
-          <label htmlFor="userName">nome:</label>
-          <input
-            type="text"
-            id="userName"
-            name="name"
-            value={registerForm.name}
-            onChange={(e) => setRegisterForm({...registerForm, name: e.target.value})}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="RegisterLogin">login:</label>
-          <input
-            type="text"
-            id="RegisterLogin"
-            name="RegisterLogin"
-            minLength={3}
-            value={registerForm.login}
-            onChange={(e) => setRegisterForm({...registerForm, login: e.target.value})}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">senha:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            minLength={3}
-            value={registerForm.password}
-            onChange={(e) => setRegisterForm({...registerForm, password: e.target.value})}
-            required
-          />
-        </div>
-        <button type="submit">Cadastrar</button>
+        <Input label="nome" type="text" name="name" {...name} />
+        <Input label="login" type="text" name="RegisterLogin" {...login} />
+        <Input label="senha" type="password" name="password" {...password} />
+
+        <Button type="submit">Cadastrar</Button>
+        <ErrorMsg errorMsg={error} />
       </form>
-      
-      
-    </div>
+    </section>
+  );
+};
 
-    )
-}
-
-export default LoginCreate
+export default LoginCreate;

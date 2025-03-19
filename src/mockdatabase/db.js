@@ -15,16 +15,22 @@ export function removeLocalUserData() {
 // Adicionar usuários
 export async function addNewUser(name, login, password) {
 
-
+  let response = {
+    cod: "",
+    message: "",
+    user: {}
+  }
   if (await validateNewUser(login)) {
-
-    return null
+    response.cod = "409 Conflict"
+    response.message = "Já existe um usuário com esse login."
+    return response
   }
   try {
 
     await axios.post("http://localhost:3000/users", { name, login, password, registerDate: new Date() })
 
-    return await getUserByLogin(login)
+    response.user = await getUserByLogin(login)
+    return response
   }
   catch (error) {
     console.log(error)
@@ -72,5 +78,6 @@ async function getAllUsers() {
 async function getUserByLogin(login) {
   const users = await getAllUsers()
   let user = users.find(item => item.login === login)
+  console.log(user)
   return user
 }

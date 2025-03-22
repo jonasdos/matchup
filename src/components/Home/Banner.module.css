@@ -1,0 +1,20 @@
+.bannerStyle {
+  height: 250px;
+  background-size: cover;
+}
+
+.bannerStyle nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: flex-start;
+  margin: 1rem;
+
+  h4 {
+    margin: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: rgb(253, 252, 251);
+  }
+
+}

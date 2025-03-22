@@ -5,20 +5,64 @@
   border: none;
   border-radius: 0.4rem;
   background: #229E0A;
-  color: #e1f5dd;
+  color: #ecfaea;
   min-width: 8rem;
   padding: 0.8rem 1.2rem;
   box-sizing: border-box;
   transition: 0.1s;
 }
 
+.buttonSelected {
+  color: #155c07;
+  background: #ecfaea;
+  box-shadow: 0 0 0 2px #fea, 0 0 0 4px #229E0A;
+}
+
 .button:hover,
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px #fea, 0 0 0 4px #229E0A;
+
 }
 
 .button:disabled {
   opacity: 0.5;
-  cursor: wait;
+
+}
+
+.button:active {
+  background-color: rgb(223, 247, 222);
+  color: #229E0A;
+}
+
+.celulaEstado[data="-"] {
+  background-color: #fff;
+  color: #C62828;
+}
+
+.celulaEstado[data="-"]:hover {
+  box-shadow: none;
+}
+
+.celulaEstado {
+
+  border: 1px solid #dee2e6;
+  text-align: center;
+  background-color: #fff;
+  color: #229E0A;
+  font-weight: 600;
+  min-width: 4rem;
+}
+
+.celulaEstadoSelected {
+  background-color: #229E0A;
+  color: #ecfaea;
+}
+
+@media screen and (max-width: 500px) {
+  .celulaEstado {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    min-width: 2rem;
+  }
+
 }

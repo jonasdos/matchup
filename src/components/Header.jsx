@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import styles from "../components/Header.module.css";
+import logo from "../assets/BolaToda.svg";
 
 function Header() {
   const { login, data } = React.useContext(UserContext);
@@ -9,7 +10,16 @@ function Header() {
   return (
     <header className={styles.header}>
       <nav className={`${styles.nav} container`}>
-        <Link to="/">Bola toda</Link>
+        <div className={styles.containerLogo}>
+          <Link to="/">
+            <img src={logo} alt="Logomarca" />
+          </Link>
+          <div className={styles.headerlinks}>
+            {" "}
+            <Link>Reservar horário</Link> | <Link>Escolinha</Link> |{" "}
+            <Link>Futfitness</Link>
+          </div>
+        </div>
         {login ? (
           <Link className={styles.login} to={"/profile"}>
             {data.name}

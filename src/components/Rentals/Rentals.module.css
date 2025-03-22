@@ -1,0 +1,244 @@
+.containerCarrosel {
+  width: 100%;
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.containerCarrosel:active {
+  cursor: grabbing;
+}
+
+.containerCarrosel::-webkit-scrollbar {
+  display: none;
+}
+
+.containerCarrosel>button {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+.tabelaContainer {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1rem;
+
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalhoRecursos,
+.linhaHorario {
+  display: grid;
+  grid-template-columns: 50px repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.celulaHorario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+}
+
+.celulaRecurso {
+  text-align: center;
+  font-weight: bold;
+  text-transform: capitalize;
+  background-color: #f1f1f1;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.celulaEstado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #e8f5e9;
+  color: #229e0a;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.celulaEstado:hover {
+  background-color: #c8e6c9;
+  transform: scale(1.05);
+}
+
+.celulaEstado:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.celulaEstadoSelected {
+  background-color: #229e0a;
+  color: #fff;
+}
+
+.rentalConfirm {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirmTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.confirmContainer p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+.confirmForm {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.formGroup input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #229e0a;
+  box-shadow: 0 0 0 2px rgba(34, 158, 10, 0.2);
+}
+
+.button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #229e0a;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #1e8e09;
+  transform: scale(1.05);
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.containerDay {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.5) 100%), url('../../assets/banner.jpg');
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.containerRentals {
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+
+  .cabecalhoRecursos,
+  .linhaHorario {
+    grid-template-columns: 40px repeat(3, 1fr);
+  }
+
+  .containerCarrosel {
+    gap: 0.5rem;
+  }
+
+  .confirmTitle {
+    font-size: 1.2rem;
+  }
+
+  .formGroup input {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cabecalhoRecursos {
+    grid-template-columns: 20px repeat(3, 1fr);
+    gap: 0.8rem;
+    background-color: rgba(30, 255, 0, 0.164);
+  }
+
+  .linhaHorario {
+    grid-template-columns: 20px repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  .celulaHorario {
+    font-size: 0.9rem;
+  }
+}

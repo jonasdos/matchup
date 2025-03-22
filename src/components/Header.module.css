@@ -41,12 +41,16 @@
   border-radius: 0.5rem;
 }
 
+.headerlinks {
+  display: none;
+}
+
 .headerlinks a:hover {
   background-color: rgba(43, 255, 0, 0.212);
 
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 400px) {
   .headerlinks {
     display: none;
   }
